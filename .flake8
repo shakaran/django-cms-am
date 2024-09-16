@@ -1,0 +1,5 @@
+[flake8]
+exclude = build,.git,.tox,./tests/.env
+extend-ignore = E203
+max-line-length = 88
+per-file-ignores =
