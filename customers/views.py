@@ -3,6 +3,7 @@ from .models import Customer, User
 from .serializers import CustomerSerializer, UserSerializer
 from rest_framework.permissions import IsAdminUser
 
+
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all().order_by('-created_at')
     serializer_class = CustomerSerializer
@@ -13,6 +14,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
     def perform_update(self, serializer):
         serializer.save(modified_by=self.request.user)
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

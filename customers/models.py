@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Customer(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
@@ -13,6 +14,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.surname} (ID: {self.customer_id})"
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
