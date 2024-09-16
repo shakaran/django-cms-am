@@ -5,7 +5,8 @@ from .models import Customer, User
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ['id', 'name', 'surname', 'customer_id', 'photo', 'created_by', 'modified_by', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'surname', 'customer_id',
+                  'photo', 'created_by', 'modified_by', 'created_at', 'updated_at']
         read_only_fields = ['created_by', 'modified_by']
 
     def validate_customer_id(self, value):

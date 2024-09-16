@@ -50,7 +50,8 @@ class CustomerAPITestCase(TestCase):
         self.assertEqual(Customer.objects.count(), 1)
 
     def test_list_customers(self):
-        Customer.objects.create(name='Jane', surname='Doe', customer_id='67890', created_by=self.user)
+        Customer.objects.create(name='Jane', surname='Doe',
+                                customer_id='67890', created_by=self.user)
         response = self.client.get('/api/customers/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)

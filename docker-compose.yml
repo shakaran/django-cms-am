@@ -23,7 +23,7 @@ services:
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000 --insecure
+    command: python manage.py runserver 0.0.0.0:8000 --insecure --verbosity=3
     volumes:
       - .:/app
       - ./staticfiles:/app/staticfiles
