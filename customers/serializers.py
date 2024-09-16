@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Customer, User
 
+
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
@@ -11,6 +12,7 @@ class CustomerSerializer(serializers.ModelSerializer):
         if not value.isalnum():
             raise serializers.ValidationError("The client ID must be alphanumeric.")
         return value
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
