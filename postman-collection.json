@@ -1,0 +1,209 @@
+{
+  "info": {
+    "name": "Django CMS AM - Customer Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "OAuth2 Authentication",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "grant_type", "value": "password", "type": "text" },
+            { "key": "username", "value": "your_username", "type": "text" },
+            { "key": "password", "value": "your_password", "type": "text" },
+            { "key": "client_id", "value": "your_client_id", "type": "text" },
+            { "key": "client_secret", "value": "your_client_secret", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://0.0.0.0:8000/auth/token/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["auth", "token"]
+        }
+      }
+    },
+    {
+      "name": "List Customers",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://0.0.0.0:8000/customers/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Get Customer by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://0.0.0.0:8000/customers/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["customers", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "name", "value": "John", "type": "text" },
+            { "key": "surname", "value": "Doe", "type": "text" },
+            { "key": "customer_id", "value": "12345", "type": "text" },
+            { "key": "photo", "type": "file", "src": "" }
+          ]
+        },
+        "url": {
+          "raw": "http://0.0.0.0:8000/customers/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Update Customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "name", "value": "Jane", "type": "text" },
+            { "key": "surname", "value": "Doe", "type": "text" },
+            { "key": "customer_id", "value": "67890", "type": "text" },
+            { "key": "photo", "type": "file", "src": "" }
+          ]
+        },
+        "url": {
+          "raw": "http://0.0.0.0:8000/customers/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["customers", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Customer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://0.0.0.0:8000/customers/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["customers", "1"]
+        }
+      }
+    },
+    {
+      "name": "List Users (Admin Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://0.0.0.0:8000/users/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "Create User (Admin Only)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "username", "value": "newuser", "type": "text" },
+            { "key": "email", "value": "newuser@example.com", "type": "text" },
+            { "key": "password", "value": "newpassword", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://0.0.0.0:8000/users/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "Update User (Admin Only)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "username", "value": "updateduser", "type": "text" },
+            { "key": "email", "value": "updateduser@example.com", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://0.0.0.0:8000/users/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete User (Admin Only)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://0.0.0.0:8000/users/1/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["users", "1"]
+        }
+      }
+    }
+  ]
+}
