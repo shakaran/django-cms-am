@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: django_cms_am
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: toor
+    ports:
+      - "5432:5432"
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000 --insecure
+    volumes:
+      - .:/app
+      - ./staticfiles:/app/staticfiles
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=django_cms_am
+      - DB_USER=postgres
+      - DB_PASSWORD=toor
+      - DB_HOST=db
+      - DB_PORT=5432
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  postgres_data:
+  staticfiles:
