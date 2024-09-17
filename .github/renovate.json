@@ -8,9 +8,6 @@
   "pip_setup": {
     "enabled": true
   },
-  "pipfile": {
-    "enabled": true
-  },
   "poetry": {
     "enabled": true
   },
@@ -19,7 +16,7 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["pip_requirements", "pip_setup", "pipfile", "poetry"],
+      "matchManagers": ["pip_requirements", "pip_setup", "poetry"],
       "groupName": "Python dependencies",
       "labels": ["dependencies", "python"]
     },
@@ -34,6 +31,6 @@
     "**/__pycache__/**"
   ],
   "automerge": {
-    "enabled": false
+    "enabled": "false"
   }
 }
