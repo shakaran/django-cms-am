@@ -30,7 +30,5 @@
     "**/node_modules/**",
     "**/__pycache__/**"
   ],
-  "automerge": {
-    "enabled": "false"
-  }
+  "automerge": false
 }
