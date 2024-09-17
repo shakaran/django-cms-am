@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "pip_requirements": {
+    "enabled": true
+  },
+  "pip_setup": {
+    "enabled": true
+  },
+  "pipfile": {
+    "enabled": true
+  },
+  "poetry": {
+    "enabled": true
+  },
+  "schedule": [
+    "before 8am on monday"
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["pip_requirements", "pip_setup", "pipfile", "poetry"],
+      "groupName": "Python dependencies",
+      "labels": ["dependencies", "python"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "Dev dependencies (Node.js)",
+      "labels": ["dependencies", "node"]
+    }
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/__pycache__/**"
+  ],
+  "automerge": {
+    "enabled": false
+  }
+}
