@@ -9,6 +9,9 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 ![Integration tests](https://github.com/shakaran/django-cms-am/actions/workflows/django.yml/badge.svg)
 
+![](doc/agile-monkeys-cover-repo.jpg)
+
+
 ## 🚀 Environment Setup
 
 ### 🐳 Needed tools
