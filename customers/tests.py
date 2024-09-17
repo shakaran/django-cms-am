@@ -115,3 +115,57 @@ class CustomerAPITestCase(TestCase):
         response = self.client.get('/api/customers/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
+
+    def test_retrieve_customer(self):
+        customer = Customer.objects.create(
+            name='John',
+            surname='Doe',
+            customer_id='12345',
+            created_by=self.user
+        )
+
+        response = self.client.get(f'/api/customers/{customer.id}/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        self.assertEqual(data['name'], 'John')
+        self.assertEqual(data['surname'], 'Doe')
+        self.assertEqual(data['customer_id'], '12345')
+        self.assertEqual(data['created_by'], customer.id)
+        self.assertIsNone(data['modified_by'])
+        self.assertIsNotNone(data['created_at'])
+        self.assertIsNotNone(data['updated_at'])
+
+    def test_update_customer(self):
+        customer = Customer.objects.create(
+            name='John',
+            surname='Doe',
+            customer_id='12345',
+            created_by=self.user
+        )
+        response = self.client.put(f'/api/customers/{customer.id}/', {
+            'name': 'Jane',
+            'surname': 'Smith',
+            'customer_id': '54321',
+            'photo': self.create_fake_image()
+        }, format='multipart')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+        self.assertEqual(data['name'], 'Jane')
+        self.assertEqual(data['surname'], 'Smith')
+        self.assertEqual(data['customer_id'], '54321')
+        self.assertIsNotNone(data['photo'])
+        self.assertEqual(data['created_by'], customer.id)
+        self.assertEqual(data['modified_by'], customer.id)
+        self.assertIsNotNone(data['created_at'])
+        self.assertIsNotNone(data['updated_at'])
+
+    def test_delete_customer(self):
+        customer = Customer.objects.create(
+            name='John',
+            surname='Doe',
+            customer_id='12345',
+            created_by=self.user
+        )
+        response = self.client.delete(f'/api/customers/{customer.id}/')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(Customer.objects.count(), 0)
