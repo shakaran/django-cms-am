@@ -1,7 +1,7 @@
 
 # Django CMS Agile Monkeys Hiring Test
 
-<img src="https://github.com/shakaran/django-cms-am/workflows/CI/badge.svg?branch=main" alt="CI pipeline status" /></a>
+<img src="https://github.com/shakaran/django-cms-am/workflows/django.yml/badge.svg?branch=main&event=push" alt="CI pipeline status" /></a>
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/shakaran/django-cms-am/graphs/commit-activity)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shakaran/django-cms-am/issues)
@@ -9,7 +9,7 @@
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fboostercloud%2Fbooster%2Fbadge%3Fref%3Dmain&style=flat)](https://actions-badge.atrox.dev/shakaran/django-cms-am/goto?ref=main)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-![Integration tests](https://github.com/shakaran/django-cms-am/actions/workflows/wf_test-integration.yml/badge.svg)
+![Integration tests](https://github.com/shakaran/django-cms-am/actions/workflows/django.yml/badge.svg)
 
 ## 🚀 Environment Setup
 
@@ -106,7 +106,7 @@ curl -X POST http://0.0.0.0:8000/auth/token/ \
 curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
      -X GET http://0.0.0.0:8000/customers/
 ```
-     
+
 ### Get details about a specific customer (GET /customers/{id}/)
 
 ```bash
@@ -144,7 +144,7 @@ curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
 ```
 
 ### List all users (GET /users/)
- 
+
 This endpoint is only available for admin users.
 
 ```bash
@@ -153,7 +153,7 @@ curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
 ```
 
 ### Create a new user (POST /users/)
- 
+
 ```bash
  curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
      -X POST http://0.0.0.0:8000/users/ \
@@ -169,7 +169,7 @@ curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
 ```
 
 ### Delete a user (DELETE /users/{id}/)
- 
+
 ```bash
      curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
      -X DELETE http://0.0.0.0:8000/users/1/
