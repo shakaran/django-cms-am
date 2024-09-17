@@ -1,6 +1,8 @@
 
 # Django CMS Agile Monkeys Hiring Test
 
+> This repo covers a [Agile Monkeys](https://www.theagilemonkeys.com) hiring recruiting test for a Django app
+
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/shakaran/django-cms-am/graphs/commit-activity)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shakaran/django-cms-am/issues)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
