@@ -17,8 +17,3 @@ class Customer(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.surname} (ID: {self.customer_id})"
-
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_admin = models.BooleanField(default=False)
