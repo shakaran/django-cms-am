@@ -71,7 +71,7 @@ jobs:
     needs: install
     services:
       postgres:
-        image: postgres:16
+        image: postgres:17
         env:
           POSTGRES_DB: django_cms_am
           POSTGRES_USER: postgres
