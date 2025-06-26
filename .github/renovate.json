@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "pip_requirements": {
     "enabled": true
@@ -16,14 +16,26 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["pip_requirements", "pip_setup", "poetry"],
+      "matchManagers": [
+        "pip_requirements",
+        "pip_setup",
+        "poetry"
+      ],
       "groupName": "Python dependencies",
-      "labels": ["dependencies", "python"]
+      "labels": [
+        "dependencies",
+        "python"
+      ]
     },
     {
-      "matchDepTypes": ["devDependencies"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
       "groupName": "Dev dependencies (Node.js)",
-      "labels": ["dependencies", "node"]
+      "labels": [
+        "dependencies",
+        "node"
+      ]
     }
   ],
   "ignorePaths": [
