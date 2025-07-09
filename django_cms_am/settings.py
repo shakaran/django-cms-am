@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'customers',
     'storages',
+    'users'
 ]
 
 MIDDLEWARE = [
