@@ -107,20 +107,20 @@ jobs:
             echo "DB_PASSWORD=toor" >> $GITHUB_ENV
             echo "DB_HOST=localhost" >> $GITHUB_ENV
             echo "DB_PORT=5432" >> $GITHUB_ENV
+      - name: Create logs directory
+        run: mkdir -p logs
       - name: Run Migrations
         run: python manage.py migrate
       - name: Run Collect static
         run: python manage.py collectstatic --noinput
       - name: Run Tests
-        run: python manage.py test
-
+        run: python manage.py test --verbosity 2
       - name: Install Coverage
         run: pip install coverage
       - name: Run Tests with Coverage
         run: coverage run manage.py test
       - name: Generate Coverage Report
         run: coverage report
-
       - name: Show Django logs on error
         if: failure()
         run: |
