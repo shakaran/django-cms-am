@@ -124,4 +124,8 @@ jobs:
       - name: Show Django logs on error
         if: failure()
         run: |
-          cat logs/django.log
+          if [ -f logs/django.log ]; then
+            cat logs/django.log
+          else
+            echo "No se encontró el archivo logs/django.log"
+          fi
